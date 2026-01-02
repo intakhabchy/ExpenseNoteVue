@@ -1,33 +1,35 @@
 <template>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="text-center mb-3">Login</h4>
+  <div class="vh-100 d-flex justify-content-center align-items-center bg-light">
+    <div class="card shadow-sm" style="width: 380px;">
+      <div class="card-body p-4">
+        <h4 class="text-center mb-4">Expense Tracker</h4>
 
-            <input
-              type="email"
-              class="form-control mb-3"
-              placeholder="Email"
-              v-model="email"
-            />
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            v-model="email"
+            placeholder="Enter email"
+          />
+        </div>
 
-            <input
-              type="password"
-              class="form-control mb-3"
-              placeholder="Password"
-              v-model="password"
-            />
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            v-model="password"
+            placeholder="Enter password"
+          />
+        </div>
 
-            <button class="btn btn-primary w-100" @click="login">
-              Login
-            </button>
+        <button class="btn btn-primary w-100" @click="login">
+          Login
+        </button>
 
-            <p class="text-danger text-center mt-2" v-if="error">
-              {{ error }}
-            </p>
-          </div>
+        <div v-if="error" class="text-danger text-center mt-3">
+          {{ error }}
         </div>
       </div>
     </div>
@@ -43,6 +45,7 @@ const password = ref("");
 const error = ref("");
 
 const login = async () => {
+  error.value = "";
   try {
     const res = await api.post("/api-token-login", {
       email: email.value,
@@ -51,8 +54,8 @@ const login = async () => {
 
     localStorage.setItem("token", res.data.token);
     window.location.href = "/dashboard";
-  } catch (e) {
-    error.value = "Invalid credentials";
+  } catch {
+    error.value = "Invalid email or password";
   }
 };
 </script>
