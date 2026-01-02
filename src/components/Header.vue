@@ -13,7 +13,7 @@
       <ul class="dropdown-menu dropdown-menu-end">
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider" /></li>
-        <li><a class="dropdown-item" @click="logout">Logout</a></li>
+        <li><a class="dropdown-item" href="#" @click="logout">Logout</a></li>
       </ul>
     </div>
   </nav>
