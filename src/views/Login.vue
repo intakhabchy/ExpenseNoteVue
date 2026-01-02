@@ -39,6 +39,9 @@
 <script setup>
 import { ref } from "vue";
 import api from "../api";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const email = ref("");
 const password = ref("");
@@ -53,7 +56,7 @@ const login = async () => {
     });
 
     localStorage.setItem("token", res.data.token);
-    window.location.href = "/dashboard";
+    router.push("/dashboard");  // no page reload; windows.location.href = "/dashboard" reloads
   } catch {
     error.value = "Invalid email or password";
   }
