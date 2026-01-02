@@ -27,7 +27,7 @@ const userName = ref(localStorage.getItem("userName") || "User");
 const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("userName");
-  window.location.href = "/";
+  router.push("/");
 };
 </script>
 

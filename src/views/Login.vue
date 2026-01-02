@@ -56,6 +56,7 @@ const login = async () => {
     });
 
     localStorage.setItem("token", res.data.token);
+    localStorage.setItem("userName", res.data.user.name);
     router.push("/dashboard");  // no page reload; windows.location.href = "/dashboard" reloads
   } catch {
     error.value = "Invalid email or password";
