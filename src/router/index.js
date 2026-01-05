@@ -2,11 +2,13 @@ import { createRouter, createWebHistory } from "vue-router";
 import Login from "@/views/Login.vue";
 import Dashboard from "@/views/Dashboard.vue";
 import Categories from "@/views/Categories.vue";
+import Wallets from "@/views/Wallets.vue";
 
 const routes = [
   { path: "/", component: Login },
   { path: "/dashboard", component: Dashboard, meta: { requiresAuth: true }},
   { path: "/categories", component: Categories, meta: { requiresAuth: true }},
+  { path: "/wallets", component: Wallets, meta: { requiresAuth: true }},
 ];
 
 const router = createRouter({
