@@ -9,7 +9,7 @@
 
       <!-- Main content area -->
       <div class="flex-grow-1 p-4">
-        <h3>Categories</h3>
+        <h3>Wallets</h3>
 
         <!-- Table to show category data -->
         <table class="table table-bordered mt-3">
