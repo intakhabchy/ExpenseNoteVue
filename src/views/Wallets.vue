@@ -31,7 +31,7 @@
               <td>{{ wallet.wallet_name }}</td>
               <td>{{ wallet.user.name }}</td>
               <td>{{ wallet.currency.currency_name }}</td>
-              <td>{{ wallet.user.name }}</td>
+              <td>{{ wallet.creator.name }}</td>
               <td>{{ formatDate(wallet.created_at) }}</td>
             </tr>
           </tbody>
