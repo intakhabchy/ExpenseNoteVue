@@ -9,7 +9,15 @@
 
       <!-- Main content area -->
       <div class="flex-grow-1 p-4">
-        <h3>Categories</h3>
+        <!-- Title + Add button row -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3 class="mb-0">Categories</h3>
+
+          <!-- Add Category button -->
+          <button class="btn btn-primary" @click="goToAddCategory">
+            + Add Category
+          </button>
+        </div>
 
         <!-- Table to show category data -->
         <table class="table table-bordered mt-3">
@@ -48,6 +56,12 @@
 <script setup>
 import { ref, onMounted } from "vue"; // ref → reactive variable, onMounted → run code when component loads
 import api from "../api"; // axios instance with baseURL and token
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const goToAddCategory = () => {
+  router.push("/categories/create");
+};
 
 // Import layout components
 import Header from "../components/Header.vue";

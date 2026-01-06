@@ -9,6 +9,7 @@ const routes = [
   { path: "/dashboard", component: Dashboard, meta: { requiresAuth: true }},
   { path: "/categories", component: Categories, meta: { requiresAuth: true }},
   { path: "/wallets", component: Wallets, meta: { requiresAuth: true }},
+  { path: "/categories/create", component: () => import("../views/CategoryCreate.vue"), meta: { requiresAuth: true }},
 ];
 
 const router = createRouter({
