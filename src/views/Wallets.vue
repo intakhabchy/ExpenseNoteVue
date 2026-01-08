@@ -9,9 +9,17 @@
 
       <!-- Main content area -->
       <div class="flex-grow-1 p-4">
-        <h3>Wallets</h3>
+        <!-- Title + Add button row -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3 class="mb-0">Wallets</h3>
 
-        <!-- Table to show category data -->
+          <!-- Add Wallet button -->
+          <button class="btn btn-primary" @click="goToAddWallet">
+            + Add Wallets
+          </button>
+        </div>
+
+        <!-- Table to show wallet data -->
         <table class="table table-bordered mt-3">
           <thead>
             <tr>
@@ -50,6 +58,12 @@
 <script setup>
 import { ref, onMounted } from "vue"; // ref → reactive variable, onMounted → run code when component loads
 import api from "../api"; // axios instance with baseURL and token
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const goToAddWallet = () => {
+  router.push("/wallets/create");
+};
 
 // Import layout components
 import Header from "../components/Header.vue";

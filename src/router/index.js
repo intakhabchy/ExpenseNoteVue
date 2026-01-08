@@ -10,6 +10,7 @@ const routes = [
   { path: "/categories", component: Categories, meta: { requiresAuth: true }},
   { path: "/wallets", component: Wallets, meta: { requiresAuth: true }},
   { path: "/categories/create", component: () => import("../views/CategoryCreate.vue"), meta: { requiresAuth: true }},
+  { path: "/wallets/create", component: () => import("../views/WalletCreate.vue"), meta: { requiresAuth: true }},
 ];
 
 const router = createRouter({
