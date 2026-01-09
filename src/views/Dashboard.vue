@@ -6,22 +6,20 @@
       <Sidebar />
 
       <div class="flex-grow-1 p-3">
-        <div class="row align-items-stretch">
-
-          <!-- LEFT: History (scrollable, same height as right) -->
-          <div class="col-md-7">
-            <div class="h-100 border rounded p-3 overflow-auto">
+        <div class="flex-grow-1 p-3 d-flex gap-3">
+          <!-- LEFT -->
+          <div class="col-md-7 d-flex flex-column">
+            <div class="border rounded p-3 overflow-auto flex-grow-1">
               <HistoryList />
             </div>
           </div>
 
-          <!-- RIGHT: Entry Form (standard height) -->
+          <!-- RIGHT -->
           <div class="col-md-5">
             <div class="border rounded p-3">
               <WalletForm />
             </div>
           </div>
-
         </div>
       </div>
     </div>
