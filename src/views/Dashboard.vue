@@ -4,9 +4,25 @@
 
     <div class="d-flex flex-grow-1">
       <Sidebar />
-      <div class="flex-grow-1 p-4">
-        <h3>Welcome to Expense Tracker</h3>
-        <p>This is your dashboard body.</p>
+
+      <div class="flex-grow-1 p-3">
+        <div class="row align-items-stretch">
+
+          <!-- LEFT: History (scrollable, same height as right) -->
+          <div class="col-md-7">
+            <div class="h-100 border rounded p-3 overflow-auto">
+              <HistoryList />
+            </div>
+          </div>
+
+          <!-- RIGHT: Entry Form (standard height) -->
+          <div class="col-md-5">
+            <div class="border rounded p-3">
+              <WalletForm />
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -18,4 +34,6 @@
 import Header from "../components/Header.vue";
 import Sidebar from "../components/Sidebar.vue";
 import Footer from "../components/Footer.vue";
+import HistoryList from "../components/HistoryList.vue";
+import WalletForm from "../components/WalletForm.vue";
 </script>
