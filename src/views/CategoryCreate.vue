@@ -57,9 +57,8 @@ import Footer from "../components/Footer.vue";
 
 const router = useRouter();
 const name = ref("");
-const type = ref("");
 const categoryTypes = ref([]);
-const category_type_id = ref([]);
+const category_type_id = ref("");
 
 const fetchCategoryTypes = async () => {
   const res = await api.get("/categorytypes");
@@ -74,7 +73,7 @@ const saveCategory = async () => {
   try {
     await api.post("/categories", {
       category_name: name.value,
-      category_type_id: type.value,
+      category_type_id: category_type_id.value,
     });
 
     router.push("/categories"); // go back to list
