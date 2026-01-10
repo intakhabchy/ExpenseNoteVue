@@ -2,7 +2,7 @@
   <div class="vh-100 d-flex justify-content-center align-items-center bg-light">
     <div class="card shadow-sm" style="width: 380px;">
       <div class="card-body p-4">
-        <h4 class="text-center mb-4">Expense Tracker</h4>
+        <h4 class="text-center mb-4">Expense Note</h4>
 
         <div class="mb-3">
           <label class="form-label">Email</label>

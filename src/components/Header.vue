@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-3">
-    <a class="navbar-brand" href="#">Expense Tracker</a>
+    <a class="navbar-brand" href="#">Expense Note</a>
 
     <div class="ms-auto dropdown">
       <button
