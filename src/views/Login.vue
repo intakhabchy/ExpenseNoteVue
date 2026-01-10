@@ -28,6 +28,14 @@
           Login
         </button>
 
+        <!-- Signup link -->
+        <div class="text-center mt-3">
+          <small>
+            Don't have an account? 
+            <a href="#" @click.prevent="goSignup">Sign Up</a>
+          </small>
+        </div>
+
         <div v-if="error" class="text-danger text-center mt-3">
           {{ error }}
         </div>
@@ -61,5 +69,10 @@ const login = async () => {
   } catch {
     error.value = "Invalid email or password";
   }
+};
+
+// Navigate to signup page
+const goSignup = () => {
+  router.push("/signup");  // make sure you have a /signup route defined
 };
 </script>
