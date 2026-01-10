@@ -33,7 +33,7 @@ import api from "../api";
 const costs = ref([]);
 
 onMounted(async () => {
-  const res = await api.get("/costs");
+  const res = await api.get("/costByUser");
   costs.value = res.data;
 });
 
