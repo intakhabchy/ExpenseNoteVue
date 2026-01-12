@@ -1,50 +1,34 @@
-name: Deploy Vue App to cPanel
+name: Deploy Vue App via FTP
 
 on:
   push:
     branches:
-      - main  # deploy on push to main
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout code
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Setup Node
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # 3. Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # 4. Build Vue
       - name: Build Vue app
         run: npm run build
 
-      # 5. Upload build to releases folder on server
-      - name: Upload dist to server
-        uses: appleboy/scp-action@v0.1.4
+      - name: Deploy to cPanel via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          host: ${{ secrets.CPANEL_HOST }}
-          username: ${{ secrets.CPANEL_USER }}
-          key: ${{ secrets.CPANEL_SSH_KEY }}
-          source: "dist/*"
-          target: "/home/${{ secrets.CPANEL_USER }}/expensenote.intakhab.com/releases/${{ github.run_id }}"
-
-      # 6. Switch live folder to new release (atomic deploy)
-      - name: Switch live to new release
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.CPANEL_HOST }}
-          username: ${{ secrets.CPANEL_USER }}
-          key: ${{ secrets.CPANEL_SSH_KEY }}
-          script: |
-            ln -sfn /home/${{ secrets.CPANEL_USER }}/expensenote.intakhab.com/releases/${{ github.run_id }} \
-                   /home/${{ secrets.CPANEL_USER }}/expensenote.intakhab.com/live
+          server: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_FTP_USER }}
+          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          local-dir: dist
+          server-dir: /expensenote.intakhab.com/live
