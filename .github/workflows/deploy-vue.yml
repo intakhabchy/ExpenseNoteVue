@@ -31,5 +31,5 @@ jobs:
           server: ${{ secrets.CPANEL_HOST }}
           username: ${{ secrets.CPANEL_FTP_USER }}
           password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-          local-dir: dist
+          local-dir: dist/
           server-dir: /expensenote.intakhab.com/live
