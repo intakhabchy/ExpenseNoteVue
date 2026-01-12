@@ -33,3 +33,4 @@ jobs:
           password: ${{ secrets.CPANEL_FTP_PASSWORD }}
           local-dir: dist/
           server-dir: live/
+          dangerous-clean-slate: true
