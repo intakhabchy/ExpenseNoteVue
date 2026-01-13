@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Copy production env
-        run: cp .env.production .env
+        run: run: echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" > .env.production
 
       - name: Build Vue app
         run: npm run build
