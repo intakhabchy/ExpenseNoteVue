@@ -32,7 +32,7 @@
         <div class="text-center mt-3">
           <small>
             Don't have an account? 
-            <a href="#" @click.prevent="goSignup">Sign Up</a>
+            <a href="#" @click.prevent="goSignup">Sign Up Here</a>
           </small>
         </div>
 
