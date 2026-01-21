@@ -1,17 +1,20 @@
-# Use Node.js image
-FROM node:20
+# Use an official Node.js runtime as a parent image
+FROM node:20-alpine
 
-# Set working directory inside container
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy Vue project files
-COPY . .
+# Copy only package.json and package-lock.json files to the working directory first (better for caching)
+COPY package*.json ./
 
-# Install npm dependencies
+# Install dependencies
 RUN npm install
+
+# Copy the rest of the application code to the working directory
+COPY . .
 
 # Expose Vite dev server port
 EXPOSE 5173
 
-# Start Vue development server (accessible from host)
+# Start the Vite development server and allow access from outside the container
 CMD ["npm", "run", "dev", "--", "--host"]
